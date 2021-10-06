@@ -18,7 +18,7 @@ then
 
     echo $binary_linux | base64 -d > /tmp/$fname
     chmod +x /tmp/$fname
-    /tmp/$fname > \` readlink -f /proc/$$/fd/1 \`
+    /tmp/$fname $@ > \` readlink -f /proc/$$/fd/1 \`
 
     rm /tmp/$fname
 fi
@@ -35,5 +35,5 @@ $rand_path = $env:TEMP +"\\"+ -join ((65..90) + (97..122) | Get-Random -Count 5 
 $bytes=[Convert]::FromBase64String($binary_win)
 [IO.File]::WriteAllBytes(  $rand_path, $bytes)
 
-& "$rand_path"
+& "$rand_path" $args
 rm $rand_path
