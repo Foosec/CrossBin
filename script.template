@@ -10,7 +10,7 @@ if [ "$(uname)" = "Darwin" ] && [ "$binary_mac" != "" ];
 then
     echo $binary_mac | base64 -d > /tmp/$fname
     chmod +x /tmp/$fname
-    /tmp/$fname > \`lsof -p $$ -F fn | grep -h -A 1 -r "^f1$" | tail -n 1 | sed -n "s/^n//p"\`
+    /tmp/$fname $@ > \`lsof -p $$ -F fn | grep -h -A 1 -r "^f1$" | tail -n 1 | sed -n "s/^n//p"\`
 
     rm /tmp/$fname
 elif [ "$binary_linux" != "" ];
