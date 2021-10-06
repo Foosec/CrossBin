@@ -53,7 +53,6 @@ func (p *Packer) Init() error {
 		}
 		p.Chunks = append(p.Chunks, bytes.NewBuffer(buf))
 
-		log.Println(plocs[i])
 		fp := *p.PlacePath[plocs[i]]
 		if fp != "" {
 			f, err := os.Open(fp)

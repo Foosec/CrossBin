@@ -19,3 +19,4 @@
 
 *.ps1
 dist/*
+testing/*
